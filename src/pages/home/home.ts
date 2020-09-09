@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
+import { AuthService } from '../../services/auth.service';
 
 //informa que esta classe representa uma pagina e pode ser chamada nas paginas com o seu nome entre aspas "HomePage"
 @IonicPage()
@@ -18,7 +19,10 @@ creds : CredenciaisDTO = {
     senha : ""
 };
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {
+  constructor(
+      public navCtrl: NavController, 
+      public menu: MenuController,
+      public auth: AuthService) {
   }
 
   // https://ionicframework.com/docs/angular/lifecycle
@@ -34,11 +38,17 @@ creds : CredenciaisDTO = {
     
   // por padrão, já é publico
   login() {
-    console.log(this.creds);
+    this.auth.authenticate(this.creds)
+      .subscribe(
+        response => 
+          {
+            console.log(response.headers.get("Authorization"));
 
-    //abrir a pagina de Categorias, a navegação (NavController, já foi declarado no construtor)
-    //.push empilha uma pagina em cima da outra
-    //.setRoot empilha uma pagina em cima da outra
-    this.navCtrl.setRoot("CategoriasPage");
+            //abrir a pagina de Categorias, a navegação (NavController, já foi declarado no construtor)
+            //.push empilha uma pagina em cima da outra
+            //.setRoot empilha uma pagina em cima da outra
+            this.navCtrl.setRoot("CategoriasPage");
+          },
+        error => {});
   }
 }
