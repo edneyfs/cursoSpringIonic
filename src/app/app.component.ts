@@ -3,27 +3,27 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-
+//controlador da pagina app.html
 @Component({
   templateUrl: 'app.html'
 })
-//controlador da pagina  app.html
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  //pagina inicial do appp, a pagina que será chamada quando o app iniciar
+  rootPage: string = 'HomePage';
 
-  //crua array com os atributos  title e component
-  pages: Array<{title: string, component: any}>;
+  //cria array com os atributos  title e component
+  pages: Array<{title: string, component: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // atribuindo os valores na lista, o component será a pagina que será aberta, esta linkado ao import
     this.pages = [
-      { title: 'Home', component: HomePage }
+      { title: 'Home', component: 'HomePage' }
     ];
+
   }
 
   initializeApp() {
