@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
+import { MenuController } from 'ionic-angular/components/app/menu-controller';
 
 //informa que esta classe representa uma pagina e pode ser chamada nas paginas com o seu nome entre aspas "HomePage"
 @IonicPage()
@@ -11,7 +12,7 @@ import { NavController, IonicPage } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public menu: MenuController) {
   }
 
   // por padrão, já é publico
@@ -21,4 +22,15 @@ export class HomePage {
     //.setRoot empilha uma pagina em cima da outra
     this.navCtrl.setRoot("CategoriasPage");
   }
+
+  // https://ionicframework.com/docs/angular/lifecycle
+  //quando entrar, desabilida o menu
+  ionViewWillEnter() {
+    this.menu.swipeEnable(false);
+  }
+
+  //quando sair, habilida o menu
+  ionViewDidLeave() {
+    this.menu.swipeEnable(true);
+    }
 }
