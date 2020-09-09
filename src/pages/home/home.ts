@@ -42,7 +42,8 @@ creds : CredenciaisDTO = {
       .subscribe(
         response => 
           {
-            console.log(response.headers.get("Authorization"));
+            //console.log(response.headers.get("Authorization"));
+            this.auth.successfulLogin(response.headers.get("Authorization"));
 
             //abrir a pagina de Categorias, a navegação (NavController, já foi declarado no construtor)
             //.push empilha uma pagina em cima da outra
