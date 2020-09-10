@@ -19,9 +19,10 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // atribuindo os valores na lista, o component será a pagina que será aberta, esta linkado ao import
+    // MENU :: atribuindo os valores na lista, o component será a pagina que será aberta, esta linkado ao import
     this.pages = [
-      { title: 'Home', component: 'HomePage' }
+      { title: 'Profile', component: 'ProfilePage' },
+      { title: 'Categorias', component: 'CategoriasPage' }
     ];
 
   }
