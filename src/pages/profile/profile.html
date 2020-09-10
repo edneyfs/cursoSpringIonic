@@ -8,5 +8,14 @@
 </ion-header>
 
 <ion-content padding>
-{{ email }}
+  <!--mostra uma imagem-->
+  <ion-avatar>
+                              <!--vai ser do objeto, se nullo, pega o avatar ... o ? operador de navegacao segura, se a 
+                                variavel nao estiver carregada, nao acorre erro, carrega apenas quandoeh carregada-->
+    <img class="circle" [src]="cliente?.imageUrl || 'assets/imgs/avatar-blank.png'">
+    <!--  class="circle" faz a imagem aparecer com o tamanho controlado e bonitinho -->
+
+  </ion-avatar>
+  <h2 text-center>{{cliente?.nome}}</h2>
+  <p text-center>{{cliente?.email}}</p>
 </ion-content>
