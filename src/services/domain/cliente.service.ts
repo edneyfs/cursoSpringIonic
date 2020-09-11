@@ -14,13 +14,13 @@ export class ClienteService {
 
     }
 
-    findByEmail(email: string) : Observable<ClienteDTO> {
+    findByEmail(email: string) {
         //antes de criar o auth-interceptor.js
         //let token = this.storage.getLocalUser().token;
         //                                criando o texto no Header
         //let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
 
-        return this.http.get<ClienteDTO>(
+        return this.http.get(
             `${API_CONFIG.baseUrl}/clientes/email?email=${email}`);
             //,{'headers' : authHeader});
     }

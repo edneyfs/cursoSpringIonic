@@ -27,7 +27,8 @@ export class ProfilePage {
       this.clienteService.findByEmail(localUser.email)
         .subscribe(
           resposta => {
-              this.cliente = resposta;
+            //não retorna mais um clienteDTO, esta retornando agora o JSON todo, tem que fazer um cast
+              this.cliente = resposta as ClienteDTO;
               this.getImageIfExists();
           },
           error =>{
