@@ -8,19 +8,21 @@
 </ion-header>
 
 <ion-content padding>
-  
-<!-- List -->
-<ion-list>
-                  <!-- faz um FOR, percorre a lista (items) pra cada elemento, chama de item -->
-  <button ion-item *ngFor="let item of items" (click)="showProdutos(item.id)">
-    <ion-thumbnail>
-      <img src="{{bucketUrl}}/cat{{item.id}}.jpg">
-    </ion-thumbnail>
+  <ion-fab top right edge>
+    <!-- comando de navegação:navPush="CartPage" -->
+    <button navPush="CartPage" ion-fab mini><ion-icon name="cart"></ion-icon></button>
+  </ion-fab>  
 
-    <!-- interpolação -->
-    <h2> {{ item.nome }} </h2>
-
-  </button>
-</ion-list>
+  <!-- List -->
+  <ion-list>
+    <!-- faz um FOR, percorre a lista (items) pra cada elemento, chama de item -->
+    <button ion-item *ngFor="let item of items" (click)="showProdutos(item.id)">
+      <ion-thumbnail>
+        <img src="{{bucketUrl}}/cat{{item.id}}.jpg">
+      </ion-thumbnail>
+      <!-- interpolação -->
+      <h2> {{ item.nome }} </h2>
+    </button>
+  </ion-list>
 
 </ion-content>
