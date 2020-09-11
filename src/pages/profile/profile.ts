@@ -22,7 +22,6 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
     let localUser  = this.storage.getLocalUser();
     if(localUser && localUser.email) {
       this.clienteService.findByEmail(localUser.email)
