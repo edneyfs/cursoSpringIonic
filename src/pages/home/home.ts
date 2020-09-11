@@ -36,6 +36,22 @@ creds : CredenciaisDTO = {
     this.menu.swipeEnable(true);
   }
     
+  /**
+   * Entrou na tela
+   */
+  ionViewDidEnter() {
+    // se conseguir atualizar o token, é pq o token atual ainda eh valido, então pode logar direto.
+    this.auth.refreshToken()
+      .subscribe(
+          response => 
+            {
+              this.auth.successfulLogin(response.headers.get("Authorization"));
+              this.navCtrl.setRoot("CategoriasPage");
+            },
+          error => {}
+        );
+  }
+
   // por padrão, já é publico
   login() {
     this.auth.authenticate(this.creds)
