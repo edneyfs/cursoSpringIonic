@@ -21,10 +21,10 @@ export class MyApp {
 
     // MENU :: atribuindo os valores na lista, o component será a pagina que será aberta, esta linkado ao import
     this.pages = [
+      { title: 'Home', component: 'HomePage' },
       { title: 'Profile', component: 'ProfilePage' },
       { title: 'Categorias', component: 'CategoriasPage' }
     ];
-
   }
 
   initializeApp() {
