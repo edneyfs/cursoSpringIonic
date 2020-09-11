@@ -12,7 +12,7 @@
 <!-- List -->
 <ion-list>
                   <!-- faz um FOR, percorre a lista (items) pra cada elemento, chama de item -->
-  <button ion-item *ngFor="let item of items">
+  <button ion-item *ngFor="let item of items" (click)="showProdutos(item.id)">
     <ion-thumbnail>
       <img src="{{bucketUrl}}/cat{{item.id}}.jpg">
     </ion-thumbnail>
