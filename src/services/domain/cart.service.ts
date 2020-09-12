@@ -10,7 +10,7 @@ export class CartService {
     }
 
     createOrClearCart() : Cart {
-        //criando um carrinho vazio
+        console.log("criando um carrinho vazio");
         let cart: Cart = {items: []};
         this.storage.setCart(cart);
         return cart;
