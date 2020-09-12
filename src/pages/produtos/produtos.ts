@@ -21,6 +21,10 @@ export class ProdutosPage {
   }
 
   ionViewDidLoad() {
+    this.loadData();  
+  }
+
+  loadData() {
     //pegando o pametro passado na navegacao
     let categoria_id = this.navParams.get("categoria_id");
 
@@ -66,5 +70,16 @@ export class ProdutosPage {
 
     //retorna o objeto para fecha-lo depois
     return loader;
+  }
+
+  doRefresh(refresher) {
+    this.loadData();
+    //depois de X milessegundos, vai executar algo
+    setTimeout(
+      () => {
+        //vai fechar o refresh que vai aparecer
+        refresher.complete();
+      }, 
+      1000);
   }
 }
