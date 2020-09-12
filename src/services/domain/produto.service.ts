@@ -16,8 +16,14 @@ export class ProdutoService {
         return this.http.get<ProdutoDTO>(`${API_CONFIG.baseUrl}/produtos/${id}`);
     }
 
-    findByCategoria(categoria_id : string) {
-        return this.http.get(`${API_CONFIG.baseUrl}/produtos/?categorias=${categoria_id}`);
+    /**
+     * 
+     * @param categoria_id id da categoria selecionado
+     * @param page pagina atual para paginação, caso não seja informado, assumo o valor zero
+     * @param linesPerPage quantidade de itens por pagina
+     */
+    findByCategoria(categoria_id : string, page : number = 0, linesPerPage : number = 24) {
+        return this.http.get(`${API_CONFIG.baseUrl}/produtos/?categorias=${categoria_id}&page=${page}&linesPerPage=${linesPerPage}`);
     }
 
     // any aceita qualquer coisa, coringa
