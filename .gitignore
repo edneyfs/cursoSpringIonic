@@ -8,6 +8,9 @@
 *.tmp.*
 *.sublime-project
 *.sublime-workspace
+# Visual Studio 2015 cache/options directory
+.vscode/
+.vs/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
@@ -23,6 +26,7 @@ npm-debug.log*
 /.sourcemaps
 /.versions
 /.vscode
+.vs
 /coverage
 /dist
 /node_modules
